@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+.container {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.key-board {
+    border: 1px solid;
+    /* height: 100%; */
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-auto-rows: minmax(70px, auto);
+    margin: auto;
+    background-color: gray;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.backspace {
+    grid-column: 14/16;
+}
+.capslock {
+    grid-column: 1/3;
+}
+.enter {
+    grid-row: 2/4;
+    grid-column: 15;
+}
+.key-button {
+    border: 1px solid;
+    margin: 3px;
+    background-color: #3a424e;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.ShiftLeft{
+    grid-column: 1/3;
+    grid-row: 4;
+}
+.ShiftRight{
+    grid-column: 14/16;
+}
+.↑ {
+    grid-column: 13;
+    grid-row: 4;
+}
+.Space {
+    grid-column: 4/11;
+}
+.Altr {
+    grid-column: 15;
+    grid-row: 5;
+}
+.key-button:active {
+    background-color: #00ff49;
+    border-radius: 30px;
+}
