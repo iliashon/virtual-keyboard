@@ -22,14 +22,15 @@ textarea {
     background-color: gray;
     border-radius: 10px;
     margin-top: 40px;
+    user-select: none;
 }
-.backspace {
+div[data="Backspace"] {
     grid-column: 14/16;
 }
-.capslock {
+div[data="CapsLock"] {
     grid-column: 1/3;
 }
-.enter {
+div[data="Enter"] {
     grid-row: 2/4;
     grid-column: 15;
 }
@@ -42,27 +43,35 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.2s;
+    transition: 0.1s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
-.ShiftLeft{
+div[data="ShiftLeft"]{
     grid-column: 1/3;
     grid-row: 4;
 }
-.ShiftRight{
+div[data="ShiftRight"]{
     grid-column: 14/16;
 }
-.↑ {
+div[data="ArrowUp"] {
     grid-column: 13;
     grid-row: 4;
 }
-.Space {
+div[data="Space"] {
     grid-column: 4/11;
 }
-.Altr {
+div[data="AltRight"] {
     grid-column: 15;
     grid-row: 5;
 }
 .key-button:active {
-    background-color: #00ff49;
-    border-radius: 30px;
+    background-color: #dadada;
+    border-color: #3a424e;
+    color: #3a424e;
+}
+.key_active {
+    background-color: #dadada;
+    border-color: #3a424e;
+    color: #3a424e;
 }
