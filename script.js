@@ -50,7 +50,7 @@ class button {
                 this.element.classList.add('key_active');
             }
             if(e.code == this.code && e.code == 'Tab'){
-                    textField.textContent += '   ';
+                    textField.value += '  ';
             }
         })
         document.addEventListener('keyup', (e) => {
@@ -60,27 +60,27 @@ class button {
         })
         this.element.addEventListener('mousedown', () => {
             if(checkBtn.indexOf(this.code) < 0){
-                textField.textContent += `${this.key}`
+                textField.value += `${this.key}`
             }
         })
         if(this.code == 'Backspace'){
             this.element.addEventListener('mousedown', () => {
-                textField.textContent = textField.textContent.slice(0, -1);
+                textField.value = textField.value.slice(0, -1);
             })
         }
         if(this.code == 'Enter'){
             this.element.addEventListener('mousedown', () => {
-                textField.textContent += `\n`
+                textField.value += `\n`
             })
         }
         if(this.code == 'Space'){
             this.element.addEventListener('mousedown', () => {
-                textField.textContent += ' ';
+                textField.value += ' ';
             })
         }
         if(this.code == 'Tab'){
             this.element.addEventListener('mousedown', () => {
-                textField.textContent += '   ';
+                textField.value += '    ';
             })
         }
         
