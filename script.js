@@ -505,10 +505,9 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Работа с шифтами на виртуальной клаве
-const shiftLeft = document.querySelector('[data="ShiftLeft"]');
-const shiftRight = document.querySelector('[data="ShiftRight"]');
-
 document.addEventListener('mousedown', (elem) => {
+  const shiftLeft = document.querySelector('[data="ShiftLeft"]');
+  const shiftRight = document.querySelector('[data="ShiftRight"]');
   if (elem.target === shiftLeft || elem.target === shiftRight) {
     if (localStorage.getItem('lang') === 'en') {
       keyBoardWrapper.replaceChildren(keyBoardEnShift);
@@ -547,7 +546,7 @@ document.addEventListener('mousedown', (elem) => {
     }
   }
 });
-document.addEventListener('mouseup', () => {
+document.addEventListener('click', () => {
   if (localStorage.getItem('lang') === 'en') {
     keyBoardWrapper.replaceChildren(keyBoardEn);
   } else if (localStorage.getItem('lang') === 'ru') {
