@@ -11,6 +11,31 @@ window.onkeydown = (elem) => {
   }
 };
 
+// метод uppercase для capsLock
+const upperBtn = () => {
+  document.querySelectorAll('.key-button').forEach((elem) => {
+    if (elem.getAttribute('data').indexOf('Key') >= 0) {
+      const parentKeyBtn = elem.parentNode;
+      const element = elem;
+      element.innerHTML = elem.innerText.toUpperCase();
+      element.value = elem.innerText.toUpperCase();
+      parentKeyBtn.replaceChild(element, elem);
+    }
+  });
+};
+// метод lowercase для capsLock
+const lowerBtn = () => {
+  document.querySelectorAll('.key-button').forEach((elem) => {
+    if (elem.getAttribute('data').indexOf('Key') >= 0) {
+      const parentKeyBtn = elem.parentNode;
+      const element = elem;
+      element.innerHTML = elem.innerText.toLowerCase();
+      element.value = elem.innerText.toLowerCase();
+      parentKeyBtn.replaceChild(element, elem);
+    }
+  });
+};
+
 // Массивы раскладок
 const buttonKeyEn = [
   ['Backquote', '§'],
@@ -357,23 +382,13 @@ const button = (code, key) => {
   }
   if (codeBtn === 'CapsLock') {
     let capsState = false;
-    elementBtn.addEventListener('click', () => {
+    elementBtn.addEventListener('mousedown', () => {
       elementBtn.classList.toggle('key_active');
       if (capsState === false) {
-        document.querySelectorAll('.key-button').forEach((e) => {
-          if (e.getAttribute('data').indexOf('Key') >= 0) {
-            e.innerHTML = e.innerHTML.toUpperCase();
-            e.value = e.innerHTML.toUpperCase();
-          }
-        });
+        upperBtn();
         capsState = true;
       } else {
-        document.querySelectorAll('.key-button').forEach((e) => {
-          if (e.getAttribute('data').indexOf('Key') >= 0) {
-            e.innerHTML = e.innerHTML.toLowerCase();
-            e.value = e.innerHTML.toLowerCase();
-          }
-        });
+        lowerBtn();
         capsState = false;
       }
     });
@@ -454,48 +469,15 @@ document.addEventListener('keydown', () => {
   textField.focus();
 });
 
-// метод uppercase для capsLock
-const upperBtn = () => {
-  document.querySelectorAll('.key-button').forEach((elem) => {
-    if (elem.getAttribute('data').indexOf('Key') >= 0) {
-      const parentKeyBtn = elem.parentNode;
-      const element = elem;
-      element.innerHTML = elem.innerText.toUpperCase();
-      element.value = elem.innerText.toUpperCase();
-      parentKeyBtn.replaceChild(element, elem);
-    }
-  });
-};
-// метод lowercase для capsLock
-const lowerBtn = () => {
-  document.querySelectorAll('.key-button').forEach((elem) => {
-    if (elem.getAttribute('data').indexOf('Key') >= 0) {
-      const parentKeyBtn = elem.parentNode;
-      const element = elem;
-      element.innerHTML = elem.innerText.toLowerCase();
-      element.value = elem.innerText.toLowerCase();
-      parentKeyBtn.replaceChild(element, elem);
-    }
-  });
-};
-
 // Капс на физической клаве
 document.addEventListener('keydown', (e) => {
   if (e.code === 'CapsLock') {
-    document.querySelectorAll('.key-button').forEach((elem) => {
-      if (elem.getAttribute('data').indexOf('Key') >= 0) {
-        upperBtn();
-      }
-    });
+    upperBtn();
   }
 });
 document.addEventListener('keyup', (e) => {
   if (e.code === 'CapsLock') {
-    document.querySelectorAll('.key-button').forEach((elem) => {
-      if (elem.getAttribute('data').indexOf('Key') >= 0) {
-        lowerBtn();
-      }
-    });
+    lowerBtn();
   }
 });
 
