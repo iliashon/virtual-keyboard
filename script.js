@@ -325,7 +325,7 @@ const text = document.createElement('h3');
 
 //  Добавление класов блокам и их добавление в DOM
 text.classList = 'text';
-text.innerHTML = 'Клавиатура написана на операционной системе MacOS <br> Для переключения языка используйте комбинацию клавиш Alt + Control <br> Чтобы активировать shift, зажмите его и уведите курсор с кнопки, диактивировать можно просто нажав на него';
+text.innerHTML = 'Клавиатура написана на операционной системе MacOS <br> Для переключения языка используйте комбинацию клавиш Alt + Control';
 container.classList = 'container';
 keyBoardWrapper.classList = 'key-board-wrapper';
 document.body.append(container);
