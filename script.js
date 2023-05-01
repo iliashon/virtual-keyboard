@@ -454,13 +454,37 @@ document.addEventListener('keydown', () => {
   textField.focus();
 });
 
+// метод uppercase для capsLock
+const upperBtn = () => {
+  document.querySelectorAll('.key-button').forEach((elem) => {
+    if (elem.getAttribute('data').indexOf('Key') >= 0) {
+      const parentKeyBtn = elem.parentNode;
+      const element = elem;
+      element.innerHTML = elem.innerText.toUpperCase();
+      element.value = elem.innerText.toUpperCase();
+      parentKeyBtn.replaceChild(element, elem);
+    }
+  });
+};
+// метод lowercase для capsLock
+const lowerBtn = () => {
+  document.querySelectorAll('.key-button').forEach((elem) => {
+    if (elem.getAttribute('data').indexOf('Key') >= 0) {
+      const parentKeyBtn = elem.parentNode;
+      const element = elem;
+      element.innerHTML = elem.innerText.toLowerCase();
+      element.value = elem.innerText.toLowerCase();
+      parentKeyBtn.replaceChild(element, elem);
+    }
+  });
+};
+
 // Капс на физической клаве
 document.addEventListener('keydown', (e) => {
   if (e.code === 'CapsLock') {
     document.querySelectorAll('.key-button').forEach((elem) => {
       if (elem.getAttribute('data').indexOf('Key') >= 0) {
-        elem.innerHTML = elem.innerHTML.toUpperCase();
-        elem.value = elem.innerHTML.toUpperCase();
+        upperBtn();
       }
     });
   }
@@ -469,8 +493,7 @@ document.addEventListener('keyup', (e) => {
   if (e.code === 'CapsLock') {
     document.querySelectorAll('.key-button').forEach((elem) => {
       if (elem.getAttribute('data').indexOf('Key') >= 0) {
-        elem.innerHTML = elem.innerHTML.toLowerCase();
-        elem.value = elem.innerHTML.toLowerCase();
+        lowerBtn();
       }
     });
   }
